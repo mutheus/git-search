@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  
+  .nav {
+    border-bottom: 1px solid #ededed;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      
+      h1 {
+        font-size: 1.2rem;
+        text-transform: lowercase;
+        margin: 0;
+        margin-left: 4px;
+      }
+    }
+  }
+  
+  .search {
+    border-radius: 8px;
+    border: 3px solid #dc9ced;
+    padding: 0 1rem;
+    height: 35px;
+    margin: 2rem auto;
+  }
+}
