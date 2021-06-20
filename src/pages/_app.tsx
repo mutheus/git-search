@@ -1,13 +1,14 @@
 import { Search } from '../components/Search'
+import ProfileContext from '../contexts/ProfileContext'
 
 import '../styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div>
+    <ProfileContext>
       <Search />
       <Component {...pageProps} />
-    </div>
+    </ProfileContext>
   )
 }
 
