@@ -1,8 +1,17 @@
+import { useState, useContext } from 'react'
 import Image from 'next/image'
+import { ProfileContext } from '../../contexts/ProfileContext'
 
 import styles from './styles.module.scss'
 
 export function Search() {
+  const [value, setValue] = useState()
+  const { handleEnterClick } = useContext(ProfileContext);
+  
+  function handleTypeChange(e) {
+    setValue(e.target.value)
+  }
+  
   return (
     <header className={styles.container}>
       <nav className={styles.nav}>
@@ -19,6 +28,9 @@ export function Search() {
       
       <input
         className={styles.search}
+        onChange={handleTypeChange}
+        onKeyUp={(e) => handleEnterClick(e)}
+        value={value}
         type="search"
         placeholder="e.g. mutheus"
       />
