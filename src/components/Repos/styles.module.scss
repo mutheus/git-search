@@ -5,4 +5,20 @@
   h3 {
     font-size: 1.36rem;
   }
+  
+  li {
+    padding: 1em 1em 1em 0;
+    
+    a {
+      text-decoration: underline;
+    }
+    
+    p {
+      font-size: .875rem;
+    }
+  }
+  
+  li:not(:last-child) {
+    border-bottom: 1px solid #ededed;
+  }
 }

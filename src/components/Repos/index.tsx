@@ -16,9 +16,10 @@ export function Repos({ title, repos }: ReposProps) {
       <h3>{title}</h3>
     
       <ul>
-        { repos.map((repo, index) => (
-          <li key={index}>
-            <a href={repo.url}>{repo.name}</a>
+        { repos.map((repo) => (
+          <li key={repo.id}>
+            <a href={repo.html_url}><h4>{repo.name}</h4></a>
+            <p>{repo.description}</p>
           </li>
         ))}
       </ul>

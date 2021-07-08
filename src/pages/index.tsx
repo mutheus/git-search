@@ -14,11 +14,15 @@ const fetcher = url => axios.get(url).then(res => res.data)
 
 export default function Home() {
   const { showFav, search } = useContext(ProfileContext)
-  const { data, error } = useSWR(`https://api.github.com/users/${search}`, fetcher)
+  const { data, error } = useSWR(`https://api.github.com/users/${search}`)
+  const { data: repos } = useSWR(`https://api.github.com/users/${search}/repos`)
+  const { data: starred } = useSWR(`https://api.github.com/users/${search}/starred`)
   
   if (!search) return <div className={styles.message}><h2>Welcome! Search for a user</h2></div>
   if (error) return <div className={styles.message}><h2>User not found</h2></div>
   if (!data) return <div className={styles.message}><h2>Loading...</h2></div>
+  if (!repos) return <div></div>
+  if (!starred) return <div></div>
   
   const user = {
     login: data.login,
@@ -63,18 +67,12 @@ export default function Home() {
           { showFav ? (
             <Repos 
               title="Starred" 
-              repos={[{
-                name: "Favorite repository", 
-                url: "#"
-              }]} 
+              repos={starred} 
             />
           ) : (
             <Repos 
               title="Repos" 
-              repos={[{
-                name: "Nome do repositório", 
-                url: "#"
-              }]} 
+              repos={repos} 
             />
           )}
         </main>
