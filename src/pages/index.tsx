@@ -13,7 +13,7 @@ import styles from './Home.module.scss'
 const fetcher = url => axios.get(url).then(res => res.data)
 
 export default function Home() {
-  const { showFav, search, setIsInputDisabled } = useContext(ProfileContext)
+  const { showFav, search, setInputState } = useContext(ProfileContext)
   const url = `https://api.github.com/users/`
   const { data, error } = useSWR(`${url}${search}`, fetcher)
   const { data: repos } = useSWR(`${url}${search}/repos`)
@@ -21,7 +21,7 @@ export default function Home() {
   
   if (!search) return <div className={styles.message}><h2>Welcome! Search for a user</h2></div>
   if (error) { 
-    setIsInputDisabled(false)
+    setInputState(false)
     
     return (
       <div className={styles.message}><h2>User not found</h2></div>
@@ -38,7 +38,7 @@ export default function Home() {
     following: data.following
   }
   
-  setIsInputDisabled(false)
+  setInputState(false)
   
   return (
     <div className={styles.container}>

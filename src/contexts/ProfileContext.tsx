@@ -1,8 +1,21 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, ReactNode } from 'react'
 
-export const ProfileContext = createContext()
+type ProfileContextData = {
+  showFav: boolean;
+  handleActionClick: (e: object) => void;
+  search: string;
+  handleEnterClick: (e: object) => void;
+  isInputDisabled: boolean;
+  setInputState: (state: boolean) => void;
+}
 
-const ProfileProvider = ({ children }) => {
+export const ProfileContext = createContext({} as ProfileContextData)
+
+type ProfileProviderProps = {
+  children: ReactNode;
+}
+
+const ProfileProvider = ({ children }: ProfileProviderProps) => {
   const [showFav, setShowFav] = useState(false);
   const [search, setSearch] = useState(null);
   const [isInputDisabled, setIsInputDisabled] = useState(false);
@@ -27,15 +40,21 @@ const ProfileProvider = ({ children }) => {
     }
   }
   
+  function setInputState(state: boolean) {
+    setIsInputDisabled(state)
+  }
+  
   return (
-    <ProfileContext.Provider value={{
-      showFav,
-      handleActionClick,
-      search,
-      handleEnterClick,
-      isInputDisabled,
-      setIsInputDisabled
-    }}>
+    <ProfileContext.Provider 
+      value={{
+        showFav,
+        handleActionClick,
+        search,
+        handleEnterClick,
+        isInputDisabled,
+        setInputState
+      }}
+    >
       {children}
     </ProfileContext.Provider>
   )

@@ -21,7 +21,7 @@ export function Search() {
         disabled={isInputDisabled}
         type="search"
         placeholder="e.g. fdaciuk"
-        autocapitalize="none"
+        autoCapitalize="none"
       />
     </div>
   )
