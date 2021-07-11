@@ -1,6 +1,5 @@
 import { GetStaticProps } from 'next'
 import { useContext } from 'react'
-import Head from 'next/head'
 import Image from 'next/image'
 import { Actions } from '../components/Actions'
 import { Repos } from '../components/Repos'
@@ -42,12 +41,6 @@ export default function Home() {
   
   return (
     <div className={styles.container}>
-      <Head>
-        <title>git_search</title>
-        <meta name="description" content="Search for githubers" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-      
       { user && (
         <main className={styles.main}>
           <div className={styles.avatar}>

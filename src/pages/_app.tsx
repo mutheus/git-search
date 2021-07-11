@@ -7,7 +7,7 @@ import '../styles/global.scss'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <div className="sticky">
+    <div className="sticky-footer">
       <ProfileContext>
         <Header />
         <Search />
