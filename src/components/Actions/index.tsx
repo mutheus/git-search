@@ -4,12 +4,12 @@ import { ProfileContext } from '../../contexts/ProfileContext'
 import styles from './styles.module.scss'
 
 export function Actions() {
-  const { handleActionClick } = useContext(ProfileContext)
+  const { showFav, handleActionClick } = useContext(ProfileContext)
   
   return (
     <div className={styles.actions}>
-      <button onClick={handleActionClick}>See repos</button>
-      <button onClick={handleActionClick}>See starred</button>
+      <button className={`${!showFav ? styles.active : ''}`} onClick={(e) => handleActionClick(e)}>See repos</button>
+      <button className={`${showFav ? styles.active : ''}`} onClick={(e) => handleActionClick(e)}>See starred</button>
     </div>
   )
 }

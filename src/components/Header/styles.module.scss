@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--gray-line);
+  
+  .nav {
+    padding: 1rem;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      
+      h1 {
+        font-size: 1.2rem;
+        text-transform: lowercase;
+        margin: 0;
+        margin-left: 14px;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .nav {
+    width: 700px;
+    margin: 0 auto;
+  }
+}

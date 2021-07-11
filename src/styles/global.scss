@@ -1,8 +1,6 @@
-/**:not(path):not(g) {    color:                    hsla(210, 100%, 100%, 0.9) !important;    background:               hsla(210, 100%,  50%, 0.5) !important;    outline:    solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
-    box-shadow: none !important;}*/
-
 :root {
-  --light-dark: #333;
+  --theme: #333;
+  --gray-line: #e1e0e0;
 }
 
 html {
@@ -17,12 +15,12 @@ html {
 
 body {
   margin: 0;
-  color: var(--light-dark);
-  background-color: rgba(240, 240, 240, .5);
+  color: var(--theme);
+  background-color: #f0f0f0;
 }
 
 a {
-  color: var(--light-dark);
+  color: var(--theme);
   text-decoration: none;
 }
 
@@ -33,4 +31,10 @@ ul {
   
 li {
   list-style: none;
+}
+
+.sticky {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

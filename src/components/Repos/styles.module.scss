@@ -19,6 +19,6 @@
   }
   
   li:not(:last-child) {
-    border-bottom: 1px solid #ededed;
+    border-bottom: 1px solid var(--gray-line);
   }
 }

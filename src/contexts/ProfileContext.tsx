@@ -5,9 +5,14 @@ export const ProfileContext = createContext()
 const ProfileProvider = ({ children }) => {
   const [showFav, setShowFav] = useState(false);
   const [search, setSearch] = useState(null);
+  const [isInputDisabled, setIsInputDisabled] = useState(false);
   
-  function handleActionClick() {
-    setShowFav(!showFav);
+  function handleActionClick(e) {
+    if (e.target.textContent.includes('starred')) {
+      setShowFav(true)
+    } else (
+      setShowFav(false)
+    )
   }
   
   function handleEnterClick(e) {
@@ -17,6 +22,8 @@ const ProfileProvider = ({ children }) => {
     
     if (keyCode === ENTER) {
       setSearch(value)
+      setIsInputDisabled(true)
+      setShowFav(false)
     }
   }
   
@@ -25,7 +32,9 @@ const ProfileProvider = ({ children }) => {
       showFav,
       handleActionClick,
       search,
-      handleEnterClick
+      handleEnterClick,
+      isInputDisabled,
+      setIsInputDisabled
     }}>
       {children}
     </ProfileContext.Provider>

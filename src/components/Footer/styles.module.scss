@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  
+  .wrapper {
+    padding: 2rem 1em;
+    margin: 0 auto;
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      margin: 0 auto;
+    }
+    
+    span {
+      display: inline-block;
+      font-size: .875rem;
+      margin-top: 1em;
+    }
+  }
+}
